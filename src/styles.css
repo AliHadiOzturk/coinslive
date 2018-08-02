@@ -1,0 +1,66 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+.textBoxMargin{
+    margin:10px 0px !important;
+}
+.thCursor{
+    cursor: pointer;
+}
+.active{
+    color:black;
+}
+.activeLink{
+    color:#fff !important;
+}
+.trCursor{
+    cursor: pointer;
+}
+.trCursor.NonCursor{
+    cursor: default;
+}
+tbody tr:hover{
+    background-color: rgb(192, 192, 192);
+}
+.nothing{
+    cursor: default;
+}
+.nothing>tr:hover{
+    background-color: transparent;
+}
+.divNavBar{
+    height:auto;
+    width:100%;
+}
+.divNavBar.color{
+    background-color:#007bff;
+}
+.forAtags{
+    color:#fff;
+    text-decoration:none;
+}
+.forAtags a:hover{
+    text-decoration: underline;
+}
+.textSizeforSource{
+    font-size: 7pt;
+    color:#fff;
+}
+.textSizeforLinks{
+    font-size: 20pt;
+    color:#fff;
+}
+.divHr{
+    border-left:2px solid rgb(199, 199, 199);
+    height:auto;
+}
+.center-div
+{
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+

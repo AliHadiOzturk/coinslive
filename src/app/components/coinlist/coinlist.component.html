@@ -1,0 +1,38 @@
+<div class="container" *ngIf="coin">
+  <div class="float-right"><input class="form-control textBoxMargin" type="text" placeholder="Search" [(ngModel)]="filterText"/></div>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" class="thCursor" (click)="sort(rank)" [class.active]="key===rank">#<span *ngIf="key===rank">
+            <span *ngIf="reverse"><i class="fas fa-caret-down"></i></span>
+            <span *ngIf="!reverse"><i class="fas fa-caret-up"></i></span>
+          </span>
+          </th>
+          <th scope="col" class="thCursor" (click)="sort('name')" [class.active]="key==='name'">Name<span *ngIf="key==='name'">
+              <span *ngIf="reverse"><i class="fas fa-caret-down"></i></span>
+              <span *ngIf="!reverse"><i class="fas fa-caret-up"></i></span>
+            </span>
+          </th>
+          <th scope="col" class="text-center">Market Cap
+          </th>
+          <th scope="col" class="text-center">Price
+          </th>
+          <th scope="col" class="text-center">Change(24h)</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let item of coin | orderBy:key:reverse | coinFilter:filterText">
+        <tr (click)="trClick(item.symbol)" class="trCursor">
+          <th scope="row">{{item.rank}}</th>
+          <td>
+            <img style="max-width: 25px;max-height: 25px;" onError="this.src='/assets/img/notexist.png';" src="assets/img/{{item.symbol|lowercase}}.png"
+            /> {{item.name}}
+          </td>
+          <td class="align-self-center text-center">{{item.market_cap_usd|currency:'USD':symbol}}</td>
+          <td class="align-self-center text-center">{{item.price_usd|currency:'USD':symbol}}</td>
+          <td class="align-self-center text-center" [ngStyle]="{'color': item.percent_change_24h.startsWith('-') ? 'red' : 'green' }">{{item.percent_change_24h}}%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
